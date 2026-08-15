@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy 27th Birthday • Agithree Ayuningtyas</title>
+  <meta name="description" content="Undangan digital romantis spesial untuk Agithree Ayuningtyas di ulang tahun ke-27." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f0eb;
+      --card: #fffcf9;
+      --rose: #b76e79;
+      --deep-rose: #9a5560;
+      --gold: #c4a35a;
+      --soft-gold: #e8d5a3;
+      --text: #3f2e2a;
+      --muted: #7a635c;
+      --line: rgba(196, 163, 90, 0.45);
+      --shadow: rgba(63, 46, 42, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(183, 110, 121, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 90%, rgba(196, 163, 90, 0.13) 0%, transparent 45%),
+        linear-gradient(165deg, #f9f3ee 0%, #f3e8e1 40%, #f7efe9 100%);
+    }
+
+    .hearts-container {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+    }
+    .heart {
+      position: absolute; font-size: 15px; opacity: 0.22;
+      animation: floatHeart linear infinite;
+      filter: drop-shadow(0 0 4px rgba(183,110,121,0.3));
+    }
+    @keyframes floatHeart {
+      0%   { transform: translateY(105vh) rotate(0deg) scale(0.5); opacity: 0; }
+      15%  { opacity: 0.28; }
+      85%  { opacity: 0.2; }
+      100% { transform: translateY(-10vh) rotate(720deg) scale(1.05); opacity: 0; }
+    }
+
+    .slides-wrapper { position: relative; width: 100%; height: 100%; z-index: 2; }
+
+    .slide {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+      opacity: 0; visibility: hidden;
+      transform: scale(0.97) translateY(16px);
+      transition: opacity 0.9s ease, transform 0.9s ease, visibility 0.9s;
+      overflow-y: auto;
+    }
+    .slide.active {
+      opacity: 1; visibility: visible;
+      transform: scale(1) translateY(0);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2.3rem 1.7rem 2rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow:
+        0 18px 45px var(--shadow),
+        0 0 0 1px rgba(255,255,255,0.7) inset;
+      position: relative;
+    }
+    .card::before {
+      content: '';
+      position: absolute; inset: 9px;
+      border: 1px solid rgba(196, 163, 90, 0.22);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .icon-wrap {
+      width: 58px; height: 58px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #fdf6f2, #f5e6e0);
+      border: 1.5px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      box-shadow: 0 5px 14px rgba(183,110,121,0.1);
+      opacity: 0;
+      animation: fadeUp 0.85s ease 0.12s forwards;
+    }
+
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin: 0.85rem 0 1rem;
+      opacity: 0;
+      animation: fadeUp 0.85s ease 0.28s forwards;
+    }
+    .ornament span {
+      width: 34px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .ornament i { color: var(--gold); font-size: 10px; font-style: normal; }
+
+    .label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      opacity: 0;
+      animation: fadeUp 0.85s ease 0.2s forwards;
+    }
+
+    h1.main-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.4rem, 8vw, 3.6rem);
+      color: var(--rose);
+      line-height: 1.12;
+      margin: 0.15rem 0;
+      text-shadow: 0 2px 16px rgba(183,110,121,0.18);
+      opacity: 0;
+      animation: fadeUp 1s ease 0.32s forwards;
+    }
+
+    .name-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.75rem, 5.5vw, 2.35rem);
+      color: var(--rose);
+    }
+
+    .message {
+      font-size: clamp(1.02rem, 3.1vw, 1.22rem);
+      line-height: 1.72;
+      color: var(--text);
+      margin: 0.65rem 0;
+      opacity: 0;
+      transform: translateY(16px);
+      font-weight: 400;
+    }
+    .message.visible {
+      animation: fadeUp 0.95s ease forwards;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .message em { font-style: italic; color: var(--rose); }
+    .message strong { font-weight: 600; color: var(--rose); }
+
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.2vw, 1.25rem);
+      color: var(--muted);
+      margin: 0.9rem 0;
+      opacity: 0;
+      transform: translateY(16px);
+      line-height: 1.65;
+    }
+    .quote.visible {
+      animation: fadeUp 0.95s ease forwards;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .date-line {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-top: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.85s ease 0.5s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-btn {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.9rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(183,110,121,0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      opacity: 0;
+      animation: fadeUp 0.85s ease 0.85s forwards;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 11px 26px rgba(183,110,121,0.38);
+    }
+    .nav-btn.gold {
+      background: linear-gradient(135deg, #c4a35a, #a88b3e);
+      box-shadow: 0 8px 20px rgba(196,163,90,0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+      margin: 1.1rem 0 0.4rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.35s forwards;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 11px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: linear-gradient(145deg, #f8ebe6, #f0d9d3);
+      border: 1px solid rgba(196,163,90,0.28);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.05);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 7px 5px 5px;
+      background: linear-gradient(transparent, rgba(63,46,42,0.72));
+      color: #fff;
+      font-size: 0.66rem;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .placeholder-photo {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--rose);
+      font-size: 1.5rem;
+      gap: 3px;
+    }
+    .placeholder-photo span {
+      font-size: 0.62rem;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+    }
+
+    .music-ctrl {
+      position: fixed; bottom: 20px; right: 18px; z-index: 50;
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      background: rgba(255,252,249,0.95);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      transition: transform 0.25s;
+    }
+    .music-ctrl:hover { transform: scale(1.08); }
+    .music-ctrl.playing { animation: pulseMusic 2.2s ease infinite; }
+    @keyframes pulseMusic {
+      0%,100% { box-shadow: 0 0 0 0 rgba(183,110,121,0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(183,110,121,0); }
+    }
+
+    .dots {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 40;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(183,110,121,0.25);
+      transition: all 0.3s ease; cursor: pointer;
+    }
+    .dot.active {
+      background: var(--rose);
+      transform: scale(1.3);
+      box-shadow: 0 0 7px rgba(183,110,121,0.4);
+    }
+
+    #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 30; }
+
+    @media (max-width: 420px) {
+      .card { padding: 1.8rem 1.25rem 1.6rem; }
+      .gallery-grid { gap: 8px; }
+      .icon-wrap { width: 52px; height: 52px; font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="hearts-container" id="hearts"></div>
+  <canvas id="confetti"></canvas>
+
+  <!-- Musik slow romantic (ganti src dengan file saxophone favorit jika ada) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button class="music-ctrl" id="musicBtn" title="Musik" aria-label="Kontrol Musik">🎷</button>
+
+  <div class="slides-wrapper" id="slides">
+
+    <!-- SLIDE 0 : Cover -->
+    <section class="slide active" data-index="0">
+      <div class="card">
+        <div class="icon-wrap">💌</div>
+        <p class="label">Sebuah Undangan dari Hati</p>
+        <h1 class="main-title">Agithree<br>Ayuningtyas</h1>
+        <div class="ornament"><span></span><i>♥</i><span></span></div>
+        <p class="message visible" style="margin-top:0.25rem;">
+          Dengan penuh cinta dan rasa hormat,<br>
+          aku mengundangmu untuk membuka<br>
+          halaman-halaman kenangan & doa<br>
+          di hari istimewamu.
+        </p>
+        <p class="date-line">29 Oktober 1999  •  Ulang Tahun ke-27</p>
+        <button class="nav-btn" onclick="nextSlide()">Buka Undangan</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 1 -->
+    <section class="slide" data-index="1">
+      <div class="card">
+        <div class="icon-wrap">🌸</div>
+        <p class="label">Untuk yang Tersayang</p>
+        <div class="ornament"><span></span><i>✦</i><span></span></div>
+        <p class="message" data-delay="0">
+          Hai <strong class="name-script" style="font-size:1.35em;">Agithree</strong>…
+        </p>
+        <p class="message" data-delay="320">
+          Di antara ribuan hari yang pernah kita lewati,<br>
+          hari ini terasa istimewa.
+        </p>
+        <p class="message" data-delay="650">
+          Karena hari ini adalah hari di mana<br>
+          dunia pertama kali mengenal senyummu,<br>
+          dan aku bersyukur pada Tuhan<br>
+          karena menghadirkanmu di hidupku.
+        </p>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut →</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide" data-index="2">
+      <div class="card">
+        <div class="icon-wrap">✨</div>
+        <p class="label">Tentang Dirimu</p>
+        <div class="ornament"><span></span><i>♥</i><span></span></div>
+        <p class="message" data-delay="0">
+          Sejak <em>29 Oktober 1999</em>,<br>
+          langit seolah menyimpan satu bintang lebih terang.
+        </p>
+        <p class="message" data-delay="380">
+          Bintang itu adalah kamu —<br>
+          yang lembut namun tangguh,<br>
+          yang kadang diam tapi selalu mengerti,<br>
+          yang membuat hari-hari biasa<br>
+          terasa seperti rumah.
+        </p>
+        <p class="quote" data-delay="800">
+          “Kamu adalah alasan mengapa aku percaya<br>bahwa cinta yang tulus itu nyata.”
+        </p>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut →</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 : Gallery -->
+    <section class="slide" data-index="3">
+      <div class="card" style="max-width:500px;">
+        <div class="icon-wrap">📷</div>
+        <p class="label">Core Memories</p>
+        <div class="ornament"><span></span><i>✦</i><span></span></div>
+        <p class="message" data-delay="0" style="margin-bottom:0.7rem;">
+          Beberapa potongan waktu yang selalu<br>
+          ingin aku simpan selamanya…
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="placeholder-photo">🤍<span>Foto 1</span></div>
+            <div class="gallery-caption">Pertama kali …</div>
+          </div>
+          <div class="gallery-item">
+            <div class="placeholder-photo">🤍<span>Foto 2</span></div>
+            <div class="gallery-caption">Tawa kita</div>
+          </div>
+          <div class="gallery-item">
+            <div class="placeholder-photo">🤍<span>Foto 3</span></div>
+            <div class="gallery-caption">Momen tenang</div>
+          </div>
+          <div class="gallery-item">
+            <div class="placeholder-photo">🤍<span>Foto 4</span></div>
+            <div class="gallery-caption">Bersama</div>
+          </div>
+        </div>
+
+        <p class="message" data-delay="450" style="font-size:0.95rem; margin-top:0.9rem;">
+          Setiap foto di sini adalah bukti<br>
+          bahwa kita sudah menempuh banyak perjalanan indah.
+        </p>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut →</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section class="slide" data-index="4">
+      <div class="card">
+        <div class="icon-wrap">🙏</div>
+        <p class="label">Rasa Syukur</p>
+        <div class="ornament"><span></span><i>♥</i><span></span></div>
+        <p class="message" data-delay="0">
+          Terima kasih sudah menjadi kamu.
+        </p>
+        <p class="message" data-delay="320">
+          Terima kasih untuk setiap pagi yang kamu buat lebih hangat,<br>
+          setiap malam yang kamu isi dengan cerita,<br>
+          dan setiap saat di mana kamu memilih untuk tetap ada.
+        </p>
+        <p class="message" data-delay="700">
+          Aku tidak butuh versi sempurna darimu.<br>
+          Aku hanya butuh <em>kamu</em> — apa adanya.
+        </p>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut →</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section class="slide" data-index="5">
+      <div class="card">
+        <div class="icon-wrap">🌙</div>
+        <p class="label">Doa di Usia 27</p>
+        <div class="ornament"><span></span><i>✦</i><span></span></div>
+        <p class="message" data-delay="0">
+          Di usia barumu ini, aku berdoa…
+        </p>
+        <p class="message" data-delay="320">
+          Semoga langkahmu selalu dilindungi,<br>
+          hatimu selalu tenang,<br>
+          dan setiap mimpi yang kamu simpan<br>
+          perlahan menjadi kenyataan.
+        </p>
+        <p class="message" data-delay="750">
+          Dan semoga aku masih diizinkan<br>
+          menemanimu merayakan banyak ulang tahun lagi.
+        </p>
+        <button class="nav-btn" onclick="nextSlide()">Lanjut →</button>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section class="slide" data-index="6">
+      <div class="card">
+        <div class="icon-wrap">💝</div>
+        <p class="label">Dengan Cinta</p>
+        <h1 class="main-title" style="font-size:clamp(2rem,6.5vw,3rem);">
+          Selamat Ulang Tahun
+        </h1>
+        <p class="name-script" style="opacity:0; animation:fadeUp 1s ease 0.38s forwards;">
+          Agithree Ayuningtyas
+        </p>
+        <div class="ornament" style="animation-delay:0.5s;"><span></span><i>♥</i><span></span></div>
+        <p class="message" data-delay="550">
+          27 tahun yang indah.<br>
+          Semoga tahun-tahun berikutnya<br>
+          lebih hangat, lebih tenang, dan lebih penuh cinta.
+        </p>
+        <p class="quote" data-delay="950" style="margin-top:1.1rem;">
+          Aku mencintaimu.<br>
+          Hari ini, esok, dan selamanya.
+        </p>
+        <button class="nav-btn gold" onclick="celebrate()" style="animation-delay:1.35s;">
+          🎉 Rayakan Bersama
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="dots" id="dots"></div>
+
+  <script>
+    const totalSlides = 7;
+    let current = 0;
+    let musicPlaying = false;
+
+    function createHearts() {
+      const container = document.getElementById('hearts');
+      const symbols = ['♥', '♡', '❀', '✦'];
+      for (let i = 0; i < 24; i++) {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.fontSize = (11 + Math.random() * 15) + 'px';
+        h.style.animationDuration = (10 + Math.random() * 12) + 's';
+        h.style.animationDelay = Math.random() * 8 + 's';
+        h.style.color = `hsl(${340 + Math.random()*20}, 45%, ${50 + Math.random()*15}%)`;
+        container.appendChild(h);
+      }
+    }
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+
+      const active = slides[index];
+      const msgs = active.querySelectorAll('.message, .quote');
+
+      // Reset semua pesan
+      msgs.forEach(m => {
+        m.classList.remove('visible');
+        m.style.opacity = '0';
+        m.style.animation = 'none';
+        m.style.transform = 'translateY(16px)';
+      });
+
+      // Force reflow supaya animasi bisa dijalankan ulang
+      void active.offsetWidth;
+
+      // Jalankan animasi dengan delay masing-masing
+      setTimeout(() => {
+        msgs.forEach(m => {
+          const delay = parseInt(m.dataset.delay || 0);
+          setTimeout(() => {
+            m.style.animation = '';
+            m.classList.add('visible');
+          }, delay);
+        });
+      }, 50);
+
+      document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === index);
+      });
+      current = index;
+    }
+
+    function nextSlide() {
+      if (current < totalSlides - 1) showSlide(current + 1);
+    }
+    function prevSlide() {
+      if (current > 0) showSlide(current - 1);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    let touchX = 0;
+    document.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; }, {passive:true});
+    document.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].screenX - touchX;
+      if (diff < -55) nextSlide();
+      if (diff > 55) prevSlide();
+    }, {passive:true});
+
+    function buildDots() {
+      const dots = document.getElementById('dots');
+      for (let i = 0; i < totalSlides; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.onclick = () => showSlide(i);
+        dots.appendChild(d);
+      }
+    }
+
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    function toggleMusic() {
+      if (musicPlaying) {
+        audio.pause();
+        musicBtn.textContent = '🎷';
+        musicBtn.classList.remove('playing');
+      } else {
+        audio.volume = 0.4;
+        audio.play().catch(()=>{});
+        musicBtn.textContent = '🔊';
+        musicBtn.classList.add('playing');
+      }
+      musicPlaying = !musicPlaying;
+    }
+    musicBtn.addEventListener('click', toggleMusic);
+
+    document.body.addEventListener('click', function first() {
+      if (!musicPlaying) {
+        audio.volume = 0.38;
+        audio.play().then(() => {
+          musicPlaying = true;
+          musicBtn.textContent = '🔊';
+          musicBtn.classList.add('playing');
+        }).catch(()=>{});
+      }
+      document.body.removeEventListener('click', first);
+    }, {once:true});
+
+    function celebrate() {
+      const canvas = document.getElementById('confetti');
+      const ctx = canvas.getContext('2d');
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      const colors = ['#b76e79','#c4a35a','#e8d5a3','#9a5560','#f5e6e0','#d4a5a5'];
+      const pieces = Array.from({length: 160}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        w: 5 + Math.random()*8,
+        h: 7 + Math.random()*10,
+        color: colors[Math.floor(Math.random()*colors.length)],
+        speed: 2 + Math.random()*3.5,
+        rot: Math.random()*360,
+        rotSpeed: -4 + Math.random()*8
+      }));
+
+      function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        let alive = false;
+        pieces.forEach(p => {
+          p.y += p.speed;
+          p.rot += p.rotSpeed;
+          if (p.y < canvas.height + 30) alive = true;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot * Math.PI/180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          ctx.restore();
+        });
+        if (alive) requestAnimationFrame(draw);
+      }
+      draw();
+
+      setTimeout(() => {
+        alert('❤️ Selamat ulang tahun ke-27, Agithree Ayuningtyas!\nSemoga hari-harimu selalu dipenuhi cinta, ketenangan, dan kebahagiaan.');
+      }, 1500);
+    }
+
+    createHearts();
+    buildDots();
+    showSlide(0);
+    window.addEventListener('resize', () => {
+      const c = document.getElementById('confetti');
+      c.width = innerWidth; c.height = innerHeight;
+    });
+  </script>
+</body>
+</html>
